@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Cadastro Aluno</title>
+</h:head>
+
+<ui:composition template="/_template.xhtml">
+
+<ui:define name="corpo">
+
+<h:form>
+	<center><h1>Cadastro</h1></center>
+		
+	<p:panel header="Dados Pessoais" style="margin: 20px 0px;">		
+		
+		<h:panelGrid columns="4" cellpadding="5">
+			<p:outputLabel for="nome" value="Nome Completo"/>
+			<p:inputText id="nome" value="#{alunoBean.aluno.nome}" required="true"/>
+			
+			<p:outputLabel for="sexo" value="Sexo"/>
+			<p:selectOneMenu required="true" value="#{alunoBean.aluno.sexo}" id="sexo">
+				<f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+				<f:selectItem itemLabel="Feminino" itemValue="Feminino"/>
+				<f:selectItem itemLabel="Selecione"/>
+			</p:selectOneMenu>
+						
+			<p:outputLabel for="emailC" value="E-mail Coorporativo"/>
+			<p:inputText id="emailC" value="#{alunoBean.aluno.emailCorporativo}" placeholder="exemplo@ex.com" required="true"/>
+			
+			<p:outputLabel for="emailP" value="E-mail Pesoal"/>
+			<p:inputText id="emailP" value="#{alunoBean.aluno.emailPessoal}" placeholder="exemplo@ex.com" required="true"/>
+			
+			<p:outputLabel for="dddTelefone" value="DDD Telefone"/>
+			<p:inputMask id="dddTelefone" value="#{alunoBean.aluno.dddTelefone}" placeholder="xx" mask="99"/>
+			
+			<p:outputLabel for="telefone" value="Telefone"/>
+			<p:inputMask id="telefone" value="#{alunoBean.aluno.telefone}" placeholder="xxxxx-xxxx" mask="99999-9999"/>
+			
+			<p:outputLabel for="dddCelular" value="DDD Celular"/>
+			<p:inputMask id="dddCelular" value="#{alunoBean.aluno.dddCelular}" placeholder="xx" mask="99" required="true"/>
+			
+			<p:outputLabel for="celular" value="Celular"/>
+			<p:inputMask id="celular" value="#{alunoBean.aluno.celular}" placeholder="xxxxx-xxxx" mask="99999-9999" required="true"/>
+			
+			<p:outputLabel for="rg" value="RG"/>
+			<p:inputMask id="rg" value="#{alunoBean.aluno.rg}" placeholder="xx.xxx.xxx-x" mask="99.999.999-9" required="true"/>
+						
+		</h:panelGrid>
+		
+		<h:panelGrid columns="5" cellpadding="5">
+<!-- 			<p:outputLabel for="cpf" value="CPF"/> -->
+<!-- 			<p:inputMask id="cpf" value="#{alunoBean.aluno.cpf}" placeholder="xxx.xxx.xxx-xx" mask="999-999-999-99" required="true"/> -->
+			
+			<p:outputLabel for="deficiencia" value="Portador de alguma deficiencia?"/>
+			<p:selectOneRadio id="deficiencia" value="#{alunoBean.aluno.deficiente}" layout="responsive" columns="3" required="true">
+	        	<f:selectItem itemLabel="Sim" itemValue="true" />
+	        	<f:selectItem itemLabel="Não" itemValue="false"/>
+	    	</p:selectOneRadio>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="senha" value="Senha" />
+	        <p:password id="senha" value="#{alunoBean.aluno.senha}" placeholder="********" match="confirmarSenha" label="Senha" required="true" />
+	 
+	        <h:outputLabel for="confirmarSenha" value="Confirmação da senha" />
+	        <p:password id="confirmarSenha" label="Confirmação da senha" required="true" />
+	    </h:panelGrid>
+	    
+	    <h:panelGrid columns="3" cellpadding="5">
+	    	<p:outputLabel for="dataNasc" value="Data nascimento"/>
+	    	<p:calendar id="dataNasc" value="#{alunoBean.aluno.dataNascimento}" locale="de" navigator="true" required="true" pattern="dd/mm/yyyy"/>
+	    </h:panelGrid>
+	</p:panel>
+	
+	<p:panel header="Endereço" style="margin: 20px 0px;">
+		<h:panelGrid columns="6" cellpadding="5">
+			<p:outputLabel for="cep" value="CEP"/>
+			<p:inputMask placeholder="xxxxx-xxx" id="cep" value="#{alunoBean.aluno.cep}" mask="99999-999" required="true"/>
+						
+			<p:outputLabel for="numeroCasa" value="Nº"/>
+			<p:inputText id="numeroCasa" value="#{alunoBean.aluno.numeroCasa}" required="true"/>					
+		
+			<p:outputLabel for="rua" value="Rua"/>
+			<p:inputText id="rua" value="#{alunoBean.aluno.rua}" placeholder="ex: Av Conceição" required="true"/>
+			
+			<p:outputLabel for="estado" value="Estado"/>
+			<p:selectOneMenu required="true" value="#{alunoBean.aluno.estado}" id="estado">
+				<f:selectItem itemLabel="AC" itemValue="AC"/>
+				<f:selectItem itemLabel="AL"/>
+				<f:selectItem itemLabel="AM"/>
+				<f:selectItem itemLabel="AP"/>
+				<f:selectItem itemLabel="BA"/>
+				<f:selectItem itemLabel="CE"/>
+				<f:selectItem itemLabel="DF"/>
+				<f:selectItem itemLabel="ES"/>
+				<f:selectItem itemLabel="GO"/>
+				<f:selectItem itemLabel="MA"/>
+				<f:selectItem itemLabel="MG"/>
+				<f:selectItem itemLabel="MS"/>
+				<f:selectItem itemLabel="MT"/>
+				<f:selectItem itemLabel="PA"/>
+				<f:selectItem itemLabel="PB"/>
+				<f:selectItem itemLabel="PE"/>
+				<f:selectItem itemLabel="PI"/>
+				<f:selectItem itemLabel="PR"/>
+				<f:selectItem itemLabel="RJ"/>
+				<f:selectItem itemLabel="RN"/>
+				<f:selectItem itemLabel="RS"/>
+				<f:selectItem itemLabel="RO"/>
+				<f:selectItem itemLabel="RR"/>
+				<f:selectItem itemLabel="SE"/>
+				<f:selectItem itemLabel="SP"/>
+				<f:selectItem itemLabel="TO"/>
+			</p:selectOneMenu>						
+						
+			<p:outputLabel for="bairro" value="Bairro"/>
+			<p:inputText id="bairro" value="#{alunoBean.aluno.bairro}" placeholder="ex: Jardim Guançã" required="true"/>
+			
+			<p:outputLabel for="cidade" value="Cidade"/>
+			<p:inputText id="cidade" value="#{alunoBean.aluno.cidade}" placeholder="ex: Guarulhos" required="true"/>
+			
+			<p:outputLabel for="pais" value="País"/>
+			<p:inputText id="pais" value="#{alunoBean.aluno.pais}" placeholder="Brasil" required="true"/>
+		</h:panelGrid>
+	</p:panel>
+			
+<!-- 			 <p:media value="/resources/Informática - 160_CS_1 sem 2018.pdf" width="100%" height="300px"/>  -->
+	<p:commandButton value="Cadastrar" action="#{alunoBean.gravar}"/>
+</h:form>	
+</ui:define>
+
+</ui:composition>
+
+</html>

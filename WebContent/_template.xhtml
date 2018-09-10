@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+	<title>
+		<ui:insert name="titulo"/>
+	</title>
+	
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+
+	<div id="cabecalho">
+		<h:graphicImage library="imagens" name="logo.png" id="logoEscola" />
+
+		<div id="usuarioLogado">
+			<h:outputText rendered="#{not empty usuarioLogado.usuario.login}"
+				value="Logado como:  #{usuarioLogado.usuario.login}" />
+		</div>
+
+	</div>
+
+
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+
+	<div id="rodape">
+		<p>&copy;Copyright 2011. Todos os direitos reservados a
+			Hor&aacute;cio Augusto.</p>
+	</div>
+
+</h:body>
+
+</html>
+

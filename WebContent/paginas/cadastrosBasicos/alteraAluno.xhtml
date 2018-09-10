@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>ENTRETEC - ENTRETENIMENTO ETEC</title>
+</h:head>
+<h:body>
+	<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="CONFIGURAÇÕES" style="margin-bottom:20px">
+    
+     	<h3 style="text-align: center;" >Alterar Dados</h3><br></br>
+     	
+        <h:panelGrid columns="2" cellpadding="5">
+        
+        	<h:outputText value="Fazer o upload de uma nova foto"/>
+        	
+				<p:fileUpload fileUploadListener="#{alterardadosbean.upload1}" mode="advanced"
+                     update="messages" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+ 
+    	         
+        	<p:outputLabel id="celular"	value="Celular"	for="C"/>
+ 			<p:inputText	id="C"	value="#{alterardadosbean.login.celular}"/>
+ 			
+        	<p:outputLabel id="telefone"	value="Telefone"	for="T"/>
+ 			<p:inputText	id="T"	value="#{alterardadosbean.login.telefone}"/>
+ 			
+        	<p:outputLabel id="email"	value="Email"	for="E"/>
+ 			<p:inputText	id="E"	value="#{alterardadosbean.login.email}"/>
+ 			
+ 			<p:outputLabel id="rua"	value="Rua"	for="R"/>
+ 			<p:inputText	id="R"	value="#{alterardadosbean.Endereco.rua}"/>
+ 			
+ 			<p:outputLabel id="bairro"	value="Bairro"	for="B"/>
+ 			<p:inputText	id="B"	value="#{alterardadosbean.Endereco.bairro}"/>
+ 			
+        	<p:outputLabel id="cep"	value="CEP"	for="CE"/>
+ 			<p:inputText	id="CE"	value="#{alterardadosbean.Endereco.cep}"/>
+ 			
+ 			<p:outputLabel id="numero"	value="N°"	for="Num"/>
+ 			<p:inputText	id="Num"	value="#{alterardadosbean.Endereco.numero}"/>
+        	
+        	<h:outputText value="CURRICULO"/>
+        	
+				<p:fileUpload fileUploadListener="#{alterardadosbean.upload2}" mode="advanced"
+                     update="messages" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(doc|jpe?g)$/" />
+                     
+           				<p:growl id="msgs" showDetail="true" />
+ 
+    			 <p:panel header="Growl">
+    		<p:commandButton value="Concluir" id="concluir" update="growl" actionListener="#{alterardadosbean.buttonAction}" styleClass="ui-priority-primary" />
+    			</p:panel> 	
+        </h:panelGrid>
+    </p:fieldset>
+</h:form>
+</h:body>
+</html>

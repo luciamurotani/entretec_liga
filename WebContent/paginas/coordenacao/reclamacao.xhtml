@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Avaliação</title>
+</h:head>
+<h:body>
+	
+	<h:form>
+	
+		<p:panelGrid columns="1" layout="grid">
+		
+			<p:outputLabel value="Curso: "></p:outputLabel>
+			<p:selectOneMenu value="#{reclamacaoBean.reclamacao.curso}">
+				<f:selectItem itemLabel="Informática" />
+				<f:selectItem itemLabel="Logística" />
+				<f:selectItem itemLabel="Administração" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Disciplina"></p:outputLabel>
+			<p:selectOneMenu>
+				<f:selectItem itemLabel="GSO"/>
+				<f:selectItem itemLabel="TOO"/>
+				<f:selectItem itemLabel="GS"/>
+				<f:selectItem itemLabel="PC"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Data: "></p:outputLabel>
+			<p:calendar id="popup"></p:calendar>
+			
+			<p:commandButton value="Professores" onclick="PF('prof').show()"/>
+			<p:dialog header="Professores" widgetVar="prof" >
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Lucia" />
+					<f:selectItem itemLabel="Thiago" />
+					<f:selectItem itemLabel="Carla" />
+					<f:selectItem itemLabel="Fabio" />
+					<f:selectItem itemLabel="Marlene" />
+					<f:selectItem itemLabel="Victor" />
+				</p:selectOneMenu>
+				
+				<p:selectManyCheckbox columns="3" layout="responsive">
+					<f:selectItem itemLabel="Conduta anti-lgtb+"/>
+					<f:selectItem itemLabel="Machismo"/>
+					<f:selectItem itemLabel="Violencia psicologica"/>
+					<f:selectItem itemLabel="Violencia verbal"/>
+					<f:selectItem itemLabel="Violencia física"/>
+				</p:selectManyCheckbox>
+				
+				<h:panelGrid>
+					<p:outputLabel value="Descrição: "/>
+					<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+			
+			<p:commandButton value="Coordenadores" onclick="PF('coord').show()"/>
+			<p:dialog header="Coordenadores" widgetVar="coord">
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Lucia" />
+					<f:selectItem itemLabel="Thiago" />
+					<f:selectItem itemLabel="Carla" />
+					<f:selectItem itemLabel="Fabio" />
+					<f:selectItem itemLabel="Marlene" />
+					<f:selectItem itemLabel="Victor" />
+				</p:selectOneMenu>
+				
+				<p:selectManyCheckbox columns="3" layout="responsive">
+					<f:selectItem itemLabel="Conduta anti-lgtb+"/>
+					<f:selectItem itemLabel="Machismo"/>
+					<f:selectItem itemLabel="Violencia psicologica"/>
+					<f:selectItem itemLabel="Violencia verbal"/>
+					<f:selectItem itemLabel="Violencia física"/>
+					<f:selectItem itemLabel="Outros"/>
+				</p:selectManyCheckbox>
+				
+				<h:panelGrid>
+					<p:outputLabel value="Descrição: "/>
+					<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+			
+			<p:commandButton value="Equipamentos" onclick="PF('equipa').show()"/>
+			<p:dialog widgetVar="equipa" header="Equipamentos">
+				<p:selectManyCheckbox>
+					<f:selectItem itemLabel="Mouse"/>
+					<f:selectItem itemLabel="Monitor"/>
+					<f:selectItem itemLabel="Teclado"/>
+					<f:selectItem itemLabel="Computador"/>
+				</p:selectManyCheckbox>
+				<h:panelGrid columns="1">
+				<p:outputLabel>Nº do laboratorio: </p:outputLabel>
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Laboratório 1"/>
+					<f:selectItem itemLabel="Laboratório 2"/>
+				</p:selectOneMenu>
+				<p:outputLabel value="Descrição: "></p:outputLabel>
+				<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+			
+			<p:commandButton value="Salas" onclick="PF('sala').show()"/>
+			<p:dialog widgetVar="sala" header="Salas">
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Carteiras"/>
+					<f:selectItem itemLabel="Cadeiras"/>
+					<f:selectItem itemLabel="Limpeza"/>
+				</p:selectOneMenu>
+				<h:panelGrid columns="1">
+					<p:outputLabel value="Descrição"></p:outputLabel>
+					<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+		</p:panelGrid>
+		
+		<p:selectBooleanCheckbox></p:selectBooleanCheckbox>
+		<p:outputLabel>Fazer reclamação anonimamente</p:outputLabel>
+		<p:commandButton value="Confirmar"/>
+		<p:commandButton value="Cancelar"/>
+	</h:form>
+
+</h:body>
+</html>

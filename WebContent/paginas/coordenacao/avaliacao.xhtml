@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:outputStylesheet library="css" name="cssEmojis.css"/>
+<title>Avaliação</title>
+</h:head>
+<h:body>
+	
+	<h:form>
+	
+		<p:panelGrid columns="1" layout="grid">
+		
+			<p:outputLabel value="Curso: "></p:outputLabel>
+			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.curso}">
+				<f:selectItem itemLabel="Informática" itemValue="informatica"/>
+				<f:selectItem itemLabel="Logística" itemValue="logistica"/>
+				<f:selectItem itemLabel="Administração" itemValue="administraco"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Disciplina: "></p:outputLabel>
+			<p:selectOneMenu value="#{avaliacaoBean.avaliacao.disciplina}">
+				<f:selectItem itemLabel="DS" itemValue="DS"/>
+				<f:selectItem itemLabel="PC" itemValue="PC"/>
+				<f:selectItem itemLabel="TOO" itemValue="TOO"/>
+				<f:selectItem itemLabel="TLBD" itemValue="TLBD"/>
+				<f:selectItem itemLabel="LP" itemValue="LP"/>
+				<f:selectItem itemLabel="TPI" itemValue="TPI"/>
+				<f:selectItem itemLabel="GSO" itemValue="GSO"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Data: "></p:outputLabel>
+			<p:calendar id="popup"></p:calendar>
+			
+		</p:panelGrid>
+		
+		<!-- Emojis -->
+		<p:fieldset legend="Avalie">
+
+			<h:panelGrid columns="6" cellpadding="2">
+				<p:outputLabel value="Didática"></p:outputLabel>
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="emojihappy.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="slightlysmiling.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="expressionless.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="sweatemoji.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="crying.png" styleClass="emoji"/>
+					</p:commandLink>
+			
+			
+			
+				<p:outputLabel value="Professor(a)"></p:outputLabel>
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="emojihappy.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="slightlysmiling.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="expressionless.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="sweatemoji.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="crying.png" styleClass="emoji"/>
+					</p:commandLink>
+			
+			
+			
+				<p:outputLabel value="Conhecimento técnico: "></p:outputLabel>
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="emojihappy.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="slightlysmiling.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="expressionless.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="sweatemoji.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="crying.png" styleClass="emoji"/>
+					</p:commandLink>
+			
+			
+			
+				<p:outputLabel value="Materia: "></p:outputLabel>
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="emojihappy.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="slightlysmiling.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="expressionless.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="sweatemoji.png" styleClass="emoji"/>
+					</p:commandLink>
+				
+					<p:commandLink>
+						<p:graphicImage library="imgs" name="crying.png" styleClass="emoji"/>
+					</p:commandLink>
+			
+			<!-- fim dos emojis -->		
+			
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+				<p:outputLabel value="Descrição: "></p:outputLabel>
+				<p:inputTextarea></p:inputTextarea>
+			</h:panelGrid>
+			<h:panelGrid columns="2" cellpadding="3">
+				<p:selectBooleanCheckbox></p:selectBooleanCheckbox>
+				<p:outputLabel>Fazer avaliação anonimamente</p:outputLabel>
+			</h:panelGrid>
+		</p:fieldset>
+		<p:commandButton value="Confirmar"/>
+		<p:commandButton value="Cancelar"/>
+	</h:form>
+
+</h:body>
+</html>

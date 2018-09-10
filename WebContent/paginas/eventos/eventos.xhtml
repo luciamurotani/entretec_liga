@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+
+<!-- 					//CADASTRO BEAN	  -->
+		
+		<p:outputLabel value="Apelido"/>
+		<p:inputText value ="#{CadastroBean.cadastro.Apelido}"/>
+		<p:outputLabel value="Nome Do Time"/>
+		<p:inputText value= "#{CadastroBean.cadastro.NomeDoTime}"/>
+		<p:outputLabel value ="Sigla"/>
+		<p:inputText value="#{CadastroBean.cadastro.Sigla}"/>
+		<p:outputLabel value= "Foto do time"/>
+		<p:growl id="messages" showDetail="true" />
+ 
+    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
+ 
+    <p:commandButton value="Enviar" ajax="false" actionListener="#{fileUploadView.upload}" disabled="true" />
+    
+
+						
+					<!-- 	//DATETABLE -->
+	
+			<p:dataTable var="integrantes" value="#{cadastroBean.integrantes}" >
+				    <p:column headerText="Id">
+				        <h:outputText value="#{integrantes.id}" />
+				    </p:column>
+				 
+				    <p:column headerText="curso">
+				        <h:outputText value="#{integrante.curso}" />
+				    </p:column>
+				 
+				    <p:column headerText="instituição">
+				        <h:outputText value="#{integrante.instituição}" />
+				    </p:column>
+					    <p:button outcome="productDetail" value="Bookmark" icon="ui-icon-star">
+				    				<f:param name="productId" value="10" />
+						</p:button>
+			</p:dataTable>
+		
+			
+		<!--  //DIALOG -->
+		
+		<p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+    <h:outputText value="Nome Completo do integrante." />
+</p:dialog>
+	
+	</h:form>
+
+</h:body>
+</html>

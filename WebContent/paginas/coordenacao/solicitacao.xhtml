@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Avaliação</title>
+</h:head>
+<h:body>
+	
+	<h:form>
+	
+		<p:panelGrid columns="1" layout="grid">
+		
+			
+			
+			<p:outputLabel value="Data: "></p:outputLabel>
+			<p:calendar id="popup"></p:calendar>
+			
+			
+			
+			<p:commandButton value="Documentos" onclick="PF('doc').show()"/>
+			<p:dialog header="Documentos" widgetVar="doc">
+				<h:panelGrid>
+					<p:outputLabel value="RG" />
+					<p:inputMask mask="99999999-9"></p:inputMask>
+					<p:selectOneMenu>
+						<f:selectItem itemLabel="Bilhete Unico" />
+						<f:selectItem itemLabel="Declaração de Estudante" />
+					</p:selectOneMenu>
+				
+				
+					<p:outputLabel value="Descrição: "/>
+					<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+			
+			<p:commandButton value="Laboratório" onclick="PF('lab').show()"/>
+			<p:dialog widgetVar="lab" header="Laboratório">
+				<p:selectManyCheckbox>
+					<f:selectItem itemLabel="Mouse"/>
+					<f:selectItem itemLabel="Monitor"/>
+					<f:selectItem itemLabel="Teclado"/>
+					<f:selectItem itemLabel="Computador"/>
+				</p:selectManyCheckbox>
+				<h:panelGrid columns="1">
+				<p:outputLabel>Nº do laboratorio: </p:outputLabel>
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Laboratório 1"/>
+					<f:selectItem itemLabel="Laboratório 2"/>
+				</p:selectOneMenu>
+				<p:outputLabel value="Descrição: "></p:outputLabel>
+				<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+			
+			<p:commandButton value="Rever Notas" onclick="PF('reverNotas').show()"/>
+			<p:dialog widgetVar="reverNotas" header="Rever Notas">
+				<p:outputLabel value="Curso: "/>
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="Informática" />
+					<f:selectItem itemLabel="Logística" />
+					<f:selectItem itemLabel="Administração" />
+				</p:selectOneMenu>
+			
+				<p:outputLabel value="Disciplina: "/>
+				<p:selectOneMenu>
+					<f:selectItem itemLabel="LP"/>
+					<f:selectItem itemLabel="PC"/>
+					<f:selectItem itemLabel="GS"/>
+				</p:selectOneMenu>
+				<h:panelGrid columns="1">
+					<p:outputLabel value="Descrição"></p:outputLabel>
+					<p:inputTextarea></p:inputTextarea>
+				</h:panelGrid>
+			</p:dialog>
+		</p:panelGrid>
+		
+		<p:commandButton value="Confirmar"/>
+		<p:commandButton value="Cancelar"/>
+			
+		
+	</h:form>
+
+</h:body>
+</html>
